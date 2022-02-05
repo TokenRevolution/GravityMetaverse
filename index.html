@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+
+	<title>Hoverex - Documentation v1.0.0</title>
+	
+	<script>
+
+		/**
+		 var TRX_HOTSPOTS_DATA = {
+			debug: true,				// Set false after all spots are on their place
+            images: ['rate', 'id2'],	// All images IDs to place points at
+            spots: [					// Array with points here
+                // Spot 1
+                {
+					id: 'rate',					// Image ID
+                    coords: '86.20% 22.32%',	// Spot coordinates (x,y) in percent. In debug mode (debug: true) hover image ond click any mouse button, that will
+           										// copy coords to your clipboard (buffer) and than paste it in here.
+           										// Do not forget change debug to false after doc is ready!
+					template: 'trx',				// Theme name for tooltip (trx, trx-colored, light). More see here: http://iamceege.github.io/tooltipster/#styling
+					action: 'click',			// Action to open tooltip (hover, click, )
+					position: 'left',			// Tooltip position (top, right, bottom, left)
+					show: 'always',
+                    content: 'Content <a href="http://iamceege.github.io/tooltipster/">TEST link</a>. Thank you for purchasing <br> our template. We are happy that you are one of our customers and we assure you will not be disappointed.<br>  We do our best to produce top notch templates with great functionality, premium designs, and clear code.'
+                },
+			autocompliteTags: [] // Add new tags to thr List of available tags for search autocomplite
+		 */
+
+		var TRX_HOTSPOTS_DATA = {
+			debug: false,
+			images: ['img_homepage_1'], // img to wrap
+			spots: [
+				// Spot 1
+				{
+					id: 'img_homepage_1', //img id
+					coords: '80.52% 1.08%', //x,y
+					template: 'trx',
+					action: 'click',
+					position: 'bottom',
+					content: ''
+				},
+				
+
+			
+			],
+			
+			autocompliteTags: [] // Add here more tags for autocomplite search
+		};
+		
+	</script>
+
+	<link rel="stylesheet" href="css/fonts/hk-grotesk/stylesheet.css" />
+	<!--<link rel="stylesheet" href="js/magnificPopup/magnific-popup.css">-->
+
+	<!-- Photo Swipe -->
+	<!-- Core CSS file -->
+	<link rel="stylesheet" href="js/photoswipe/photoswipe.css">
+	<!-- Skin CSS file (styling of UI - buttons, caption, etc.) -->
+	<link rel="stylesheet" href="js/photoswipe/default-skin/default-skin.css">
+
+	<link rel="stylesheet" href="css/fonts/RobotoMono/stylesheet.css" />
+	<link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css" />
+	<link rel="stylesheet" href="js/jquery-ui/jquery-ui.template.min.css" />
+	<link rel="stylesheet" href="js/jquery-ui/jquery-ui.structure.min.css" />
+
+
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+
+
+	<link rel="stylesheet" href="css/progressive.min.css" />
+	<link rel="stylesheet" href="css/_Spoiler.css" />
+	<link rel="stylesheet" href="css/fontello/css/icons.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="js/tooltipster/css/tooltipster.bundle.min.css" />
+
+	<!-- Include tooltipster template here See docs here: http://iamceege.github.io/tooltipster/ -->
+	<link rel="stylesheet" href="js/tooltipster/css/plug-ins/tooltipster/sideTip/templates/tooltipster-sideTip-light.min.css" />
+	<link rel="stylesheet" href="js/tooltipster/css/plug-ins/tooltipster/sideTip/templates/tooltipster-sideTip-trx.min.css" />
+	<link rel="stylesheet" href="js/tooltipster/css/plug-ins/tooltipster/sideTip/templates/tooltipster-sideTip-trx-grey.min.css" />
+	<link rel="stylesheet" href="js/tooltipster/css/plug-ins/tooltipster/sideTip/templates/tooltipster-sideTip-trx-colored.min.css" />
+
+	<link rel="stylesheet" href="css/trx-hotspot.min.css" />
+
+
+</head>
+
+<body onload="prettyPrint()">
+
+	<div id="header" class="navbar navbar-inverse " role="navigation">
+		
+		<div class="container">
+
+			<div class="navbar-header">
+
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+					<span class="sr-only">Toggle navigation</span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+
+				</button>
+
+				<h1 class="navbar-brand">
+
+					<span class="navbar-brand-descr">PSD Documentation for</span>Hoverex
+
+				</h1>
+
+			</div>
+
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="https://1.envato.market/c/1262870/275988/4415?subId1=themerex&u=themeforest.net%2Fuser%2Fthemerex%2Fportfolio" target="_blank">Portfolio</a></li>
+					<!--<li><a href="https://themerex.ticksy.com/" target="_blank">Support</a></li>-->
+					<!--<li><a href="https://1.envato.market/c/1262870/275988/4415?subId1=themerex&u=themeforest.net" target="_blank" class="buy-button">Buy XD Template</a></li>-->
+					<li><a href="https://themerex.net/offers/?utm_source=offers&utm_medium=click&utm_campaign=themedocs" target="_blank">Custom Services</a></li>
+				</ul>
+
+				<div class="nav navbar-nav navbar-right trx-search ui-front">
+					<div class="trx-search-input-wrapper">
+						<input type="search" id="trx-search-input" placeholder="Enter text to find"><span class="trx-search-status trx-hidden-status">0/0</span>
+						<span class="trx-search-loader"></span>
+					</div>
+					<button data-search="next">&#xe807;</button>
+					<button data-search="prev">&#xe80f;</button>
+				</div>
+			</div>
+
+			<div class="nav navbar-nav navbar-right mobile-menu ui-front">
+				<button>&#xf008;</button>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="container clearfix">
+		<div class="doc-container row clearfix">
+
+			<!-- Doc Navigation Sidebar 
+				================================================== -->
+			<div class="doc-sidebar col-md-3  pull-right">
+
+				<ul class="doc-nav nav nav-list affix-top">
+
+
+					<li>
+
+						<a href="#general_information">General Information</a>
+
+							<ul>
+								
+								<li><a href="#general_information_license">License</a></li>
+
+								<li><a href="#general_information_psd_images">PSD Images</a></li>
+								
+								
+
+							</ul>
+
+					</li>
+					
+					
+
+
+					<li>
+						<a href="#psd_files">PSD Pages</a>
+					</li>
+
+
+
+					
+					
+					<li>
+						
+						<a href="#psd_file_structure">PSD File Structure</a>
+							
+							
+							
+					</li>
+					
+					
+
+					<li>
+						<a href="#src_crdts">Sources and Credits</a>
+					</li>
+
+					<li>
+						<a href="#psd_customization">PSD Customization</a>
+					</li>
+
+
+				</ul>
+
+			</div>
+
+
+
+
+
+
+			<!-- Main Content Area 
+				================================================== -->
+			<div class="doc-content col-md-9">
+
+
+				<!-- General Information 
+				================================================== -->
+				<div class="docs-section" id="general_information">
+					<h2 class="page-header">General Information</h2>
+
+					<p>
+						Thank you for purchasing our template. We are happy that you are one of our customers and we assure you will not be disappointed. We do our best to produce top notch templates with great functionality and premium designs. 
+					</p>
+					
+					<p>
+						Should you be feeling that you are not able to find an answer to your questions in this help file, feel free to contact us via the contact form on our <a href="https://1.envato.market/c/1262870/275988/4415?subId1=themerex&u=themeforest.net%2Fuser%2Fthemerex" target="_blank">account page</a>.  You may e-mail us on regards of any issue occurred to the template, or just leave your comments or suggestions.
+					</p>
+					<p>
+						We really appreciate your business with us!
+					</p>
+					
+					
+					<!-- License
+					============================ -->
+					<h3 id="general_information_license">License <span class="trx-copy-link" title="Click to copy link!"></span></h3>
+
+						<p>
+							With ThemeForest regular license you are licensed to use this template to create one
+							single End Product (the final website customized with your content) for yourself or for one
+							client. 
+						</p>
+
+						<p>
+							<strong>What is allowed with the single regular license:</strong>
+						</p>
+
+							<ol>
+
+								<li>
+									You can create <strong>1 website</strong> (on a single domain) for yourself or for your client. You can then transfer that website to your client for any fee. In that case, the license is also transferred to your client.
+								</li>
+
+								<!--<li>
+									You can install the template on your test server for testing/development purposes (this installation should not be available to the public).
+								</li>-->
+
+								<li>
+									You can modify or manipulate the template, you can combine it with other works to
+									create the End Product.
+								</li>
+
+								<!--<li>
+									The template updates for the single End Product (website) are free.
+								</li>-->
+
+								
+
+							</ol>
+							<br>
+						
+
+						<p><strong>What is not allowed:</strong></p>
+						<ol>
+
+							<li>
+								With a single regular license you are <strong>not allowed to create multiple websites</strong>. For multiple websites you will need multiple regular licenses.
+							</li>
+
+							<li>
+								To resell the same website (Single End Product) to another clients.
+								You will need to purchase an extended license for this.
+							</li>
+
+						</ol>
+						<p>For more information regarding license regulations and policies, see the links below:</p>
+
+						<ul>
+
+							<li><a href="https://1.envato.market/c/1262870/275988/4415?subId1=themerex&u=themeforest.net%2Flicenses%2Ffaq" target="_blank">License FAQ</a></li>
+
+							<li><a href="https://1.envato.market/c/1262870/275988/4415?subId1=themerex&u=themeforest.net%2Flicenses" target="_blank">Licenses overview</a></li>
+
+							<li><a href="https://1.envato.market/c/1262870/275988/4415?subId1=themerex&u=themeforest.net%2Flicenses%2Fterms%2Fregular" target="_blank">Regular license details</a></li>
+
+							<li><a href="https://1.envato.market/c/1262870/275988/4415?subId1=themerex&u=themeforest.net%2Flicenses%2Fterms%2Fextended" target="_blank">Extended license details</a></li>
+
+						</ul>
+						
+						
+					
+					<!-- PSD Images
+					============================ -->
+					<h3 id="general_information_psd_images">PSD Images <span class="trx-copy-link" title="Click to copy link!"></span></h3>
+
+						
+
+						<p>
+							The template is provided without <strong>clipart images</strong>. All the <strong>clipart images</strong> are <strong>copyrighted to their respective owners</strong> and can not be used without express permission from the owner and/or need to be purchased separately.
+						</p>
+
+						<!--<p>
+							Nevertheless, you can request the <strong>clipart-related image IDs/references</strong> and <strong>.PSD files</strong> by contacting our <a href="https://themerex.ticksy.com" target="_blank">support department</a>. 
+						</p>-->
+					
+					
+					
+					
+					
+				</div>	
+					
+					
+					
+					
+				<!-- PSD Files
+				================================================== -->
+				<div class="docs-section" id="psd_files">
+					<h2 class="page-header">PSD Pages</h2>
+					
+						<p>	
+							Below you can find the list of available PSD pages:
+						</p>
+
+						<ul>
+							<li>Home 1 (01_home.psd);</li>
+							<li>Home 2 (02_home.psd);</li>
+							<li>Home 3 (03_home-boxed.psd);</li>
+							<li>Typography (03_typography.psd);</li>
+							<li>Shortcodes (04_shortcodes.psd);</li>
+							<li>Blog stream (05_blog.psd);</li>
+							<li>Single post (06_blog-single.psd);</li>
+							<li>Features (07_features.psd);</li>
+							<li>Token sale (08_token sale.psd);</li>
+							<li>Roadmap (09_roadmap.psd);</li>
+							<li>Team (10_team.psd);</li>
+							<li>Contact (11_contact.psd);</li>
+							<li>About 1 (12_about.psd);</li>
+							<li>About 2 (13_about2.psd);</li>
+						</ul>
+						
+						
+						<!--<p>
+							The XD template is easy customizable with all folders and layers ordered.
+						</p>-->
+						<p>
+							Each page has its own easy customizable PSD with all folders and layers ordered. 
+						</p>
+
+				</div>
+
+
+
+				<!-- PSD File Structure
+				================================================== -->
+				<div class="docs-section" id="psd_file_structure">
+					<h2 class="page-header">PSD File Structure</h2>
+
+						<p>
+							All PSDs are well-organized (very nicely layered), so they are very easy to modify &amp; expand.
+							
+							<a href="images/file_structure.png" rel="prettyPhoto" title="">
+
+								<img src="images/file_structure.png" alt="">
+
+							</a>
+						</p>
+						
+						<!--<p>
+							The XD file is well-organized (very nicely layered) so it is very easy to be modified &amp; expanded.
+							
+							<a href="images/file_structure.png" rel="prettyPhoto" title="">
+
+								<img src="images/file_structure.png" alt="">
+
+							</a>
+						</p>-->
+						
+						
+					
+					
+				</div>
+					
+					
+					
+				
+
+
+
+				<!-- Sources and Credits
+				================================================== -->
+				<div class="docs-section" id="src_crdts">
+					<h2 class="page-header">Sources and Credits</h2>
+
+	                    <p>
+							In this section you can find additional information regarding fonts and clipart used in this template.
+						</p>
+						
+						<h4><strong>Fonts:</strong></h4>
+						
+							<ul>
+								<!--<li>Google Fonts</li>-->
+								
+								<li>"'Muli', 'sans-serif'";</li>
+								
+								<!--<li>'Raleway' (Google Font);</li>-->
+								
+							</ul>  
+
+	                                
+						<!--<h4><strong>Icons:</strong></h4>
+	                            
+							<ol>
+								<li><a href="https://www.flaticon.com/" target="_blank">flaticon.com</a></li>
+									
+								<li><a href="http://fontello.com/" target="_blank">Fontello icons set</a></li>
+							</ol> -->
+							
+						<!--<h4><strong>Clipart</strong></h4>
+								
+							<p>
+								Images were taken from:
+							</p>
+							
+							<ol>
+
+	                            <li>
+									<a href="http://tracking.depositphotos.com/aff_c?offer_id=4&aff_id=31799" target="_blank">http://www.depositphotos.com/</a>;
+	                            </li>
+								
+								<li>
+									 <a href="http://peopleimages.com/" target="_blank">http://peopleimages.com/</a>;
+	                            </li>
+								
+								<li>
+									 <a href="https://unsplash.com/" target="_blank">https://unsplash.com/</a>;
+	                            </li>
+
+							</ol>-->
+							
+						<p class="wrap-warning">
+							<span class="label label-warning">IMPORTANT!</span> The template is provided without <strong>clipart images</strong>. All the <strong>clipart images</strong> are <strong>copyrighted to their respective owners</strong> and are not available for download with this template. Clipart images can not be used without express permission from the owner and/or need to be purchased separately.
+						</p>
+
+	                       
+						
+						<p class="under_image_p">
+	                        Thank you for purchasing our template. We are happy that you are one of our customers. Do not ever hesitate to contact us regarding any issue related to the theme, and we would be happy to answer all you queries. In case you have any general questions about the products on ThemeForest, you may visit the forums and search for the answer on the "Item Discussion" section.
+	                    </p>
+
+				</div>
+
+
+				<!-- PSD Customization
+				================================================== -->
+				<div class="docs-section" id="psd_customization">
+					<h2 class="page-header">PSD Customization </h2>
+
+	                    <p>
+							Custom PSDs are usually the most important part of creating outstanding websites<!--an online marketing campaign-->. A properly built custom PSD can help you get the most results from your online marketing efforts. Our team can do it for you. 
+						</p>
+						
+						<p>
+							Please, find some of our offers below: 
+						</p>
+						
+						<!--
+						Banners Start
+						 -->
+
+						<div class="doc-banners">
+							<div class="clearfix">
+								<div class="col-md-4">
+									<div class="doc-banner">
+										<img alt="Clipart Replacement" src="images/clipart_replacement.png">
+										<h3>Clipart Replacement</h3>
+										<p>Replacement of theme clipart (images) with your own images (up to 6 pages).</p>
+										<!--<p>
+											<span class="service-price"><del>$80</del> $39.00</span>
+										</p>-->
+
+											<a class="doc-banner-bunner" href="https://themerex.net/offers/?utm_source=offers&utm_medium=click&utm_campaign=themedocs" target="_blank">BUY THIS OPTION</a>
+
+									</div>
+								</div>
+								
+								<div class="col-md-4">
+									<div class="doc-banner">
+										<img alt="Logo Replacement" src="images/replacing_logo.png">
+										<h3>Logo Replacement</h3>
+										<p>Replacement of the template’s logo with yours on each page of the template. </p>
+										<!--<p>
+											<span class="service-price"><del>$80</del> $60.00</span>
+										</p>-->
+
+											<a class="doc-banner-bunner" href="https://themerex.net/offers/?utm_source=offers&utm_medium=click&utm_campaign=themedocs" target="_blank">BUY THIS OPTION</a>
+
+									</div>
+								</div>
+
+								<div class="col-md-4">
+									<div class="doc-banner">
+										<img alt="Ready-To-Use Website" src="images/ready.png">
+										<h3>Ready-To-Use Website</h3>
+										<p>The WP theme setup including data and images replacement for 6 pages.</p>
+										<!--<p>
+											<span class="service-price"><del>$280</del> $262.00</span>
+										</p>-->
+
+											<a class="doc-banner-bunner" href="https://themerex.net/offers/?utm_source=offers&utm_medium=click&utm_campaign=themedocs" target="_blank">BUY THIS OPTION</a>
+
+									</div>
+								</div>
+
+								
+							</div>
+						</div>
+
+						<!--
+						Banners End
+						 -->
+						<p class="under_image_p">
+							You can check the full list of offers <a href="https://themerex.net/offers/?utm_source=offers&utm_medium=click&utm_campaign=themedocs" target="_blank">here</a>.
+						</p>
+				
+				
+				
+				</div>
+				
+
+
+
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-wrapper">
+		<footer class="container clearfix">
+			<div class="row">
+				<p class="col-md-4 social-wrap">
+					<a target="_blank" href="https://twitter.com/ThemeREX_net">
+						<span class="social-icon">
+							<span class="trx-icon-twitter"></span>
+						</span>
+					</a>
+					<a target="_blank" href="https://www.instagram.com/themerex_net/">
+						<span class="social-icon">
+							<span class="trx-icon-instagram"></span>
+						</span>
+					</a>
+					<a target="_blank" href="https://www.behance.net/themerex">
+						<span class="social-icon">
+							<span class="trx-icon-behance"></span>
+						</span>
+					</a>
+					<a target="_blank" href="https://business.facebook.com/ThemeRexStudio/">
+						<span class="social-icon">
+							<span class="trx-icon-facebook"></span>
+						</span>
+					</a>
+				</p>
+				<p class="col-md-8">
+					Copyright © <span style="color: inherit" id="trx_current_year"></span> by <a href="https://1.envato.market/c/1262870/275988/4415?subId1=themerex&u=themeforest.net%2Fuser%2Fthemerex%2Fportfolio" target="_blank">ThemeREX</a>. All Rights Reserved.
+				</p>
+			</div>
+<script>
+trxSetCurrentYear();
+function trxSetCurrentYear() {
+    var d = new Date();
+    document.getElementById("trx_current_year").innerHTML = d.getFullYear();
+}
+</script>
+		</footer>
+	</div>
+
+	<div class="upToScroll">
+        <a title="Back to top" class="scrollToTop trx-icon-up-open-big" href="#"></a>
+    </div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui/jquery-ui.min.js"></script>
+	<script src="js/tooltipster/js/tooltipster.bundle.min.js"></script>
+	<!-- Photo Swipe -->
+	<!-- Core JS file -->
+	<script src="js/photoswipe/photoswipe.min.js"></script>
+	<!-- UI JS file -->
+	<script src="js/photoswipe/photoswipe-ui-default.min.js"></script>
+	<script src="js/trxHotspot.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/progressive.min.js"></script>
+	<script src="js/_Spoiler.js"></script>
+	<script src="js/flymenu.min.js"></script>
+	<script src="js/jquery.mark.min.js"></script>
+	<script src="js/liveSearch.min.js"></script>
+	<script src="js/scrollTop.min.js"></script>
+	<script src="js/prettify.min.js"></script>
+
+	<!-- Root element of PhotoSwipe. Must have class pswp. -->
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+		<!-- Background of PhotoSwipe.
+			 It's a separate element, as animating opacity is faster than rgba(). -->
+		<div class="pswp__bg"></div>
+
+		<!-- Slides wrapper with overflow:hidden. -->
+		<div class="pswp__scroll-wrap">
+
+			<!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+			<div class="pswp__container">
+				<!-- don't modify these 3 pswp__item elements, data is added later on -->
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+
+			<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+			<div class="pswp__ui pswp__ui--hidden">
+
+				<div class="pswp__top-bar">
+
+					<!--  Controls are self-explanatory. Order can be changed. -->
+
+					<div class="pswp__counter"></div>
+
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+					<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+					<!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+					<!-- element will get class pswp__preloader--active when preloader is running -->
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+							<div class="pswp__preloader__cut">
+								<div class="pswp__preloader__donut"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+				</button>
+
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+				</button>
+
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</body>
+</html>
+	
